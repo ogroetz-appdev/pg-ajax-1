@@ -1,1 +1,9 @@
 console.log("<%= @comment.body %>")
+
+var added_comment = $("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");
+<%# above, can also:  "escape_javascript" ===> "j" %>
+<%# could also shorten the render above to just: render @comment %>
+<%# ultra concise: var added_comment = $("<%= j(render @comment) %>
+
+$("#<%= dom_id(@comment.photo) %>_new_comment_form #comment_body").val("");
+<%# .val("") ===> clears the form %>
